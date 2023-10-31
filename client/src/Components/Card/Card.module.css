@@ -1,0 +1,39 @@
+/* Card.module.css */
+
+.card {
+    width: 410px; /* Establece un ancho fijo para las tarjetas */
+    max-height: 450px; /* Establece una altura máxima para las tarjetas */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Oculta el contenido que desborda las tarjetas */
+    margin: 20px;
+  }
+  .cardContent {
+    padding: 16px;
+  }
+    
+    .card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    
+    .card h5 {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+  
+    .cardImage {
+      width: 400px; 
+      height: 200px;
+      object-fit: fill;
+      max-width: 100%; 
+      margin: 0 5px; 
+      }
+    
+    @media (max-width: 768px) {
+      .card {
+        flex-direction: row; /* Cambia la dirección de flex a fila para dispositivos pequeños */
+        align-items: center; /* Alinea los elementos verticalmente al centro */
+      }
+    }

@@ -1,0 +1,62 @@
+/* Footer.module.css */
+footer {
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 16px; /* Aumenta el tamaño de la fuente */
+  }
+  
+  .container {
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .columns {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer.module.css */
+/* Estilos base, tal como se mencionaron anteriormente */
+
+/* Footer.module.css */
+/* Estilos base, tal como se mencionaron anteriormente */
+
+.footer-line {
+    border-top: 2px solid rgb(233, 196, 106); /* Línea horizontal de 2 píxeles de grosor y color */
+    width: 100%; /* Ancho de la línea, igual al ancho del footer */
+    position: absolute;
+   
+  }
+  
+  
+  
+  @media (min-width: 768px) {
+    /* Estilos para pantallas más grandes (responsive) */
+    .container {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    
+    .columns {
+      flex-direction: row;
+      gap: 30px;
+      text-align: left;
+    }
+  }
+  

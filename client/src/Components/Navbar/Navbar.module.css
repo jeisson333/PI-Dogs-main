@@ -1,0 +1,56 @@
+/* Navbar.module.css */
+.container {
+    background-color: #264653ff; /* Color de fondo del navbar */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+  
+  .links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 125px;
+    height: 75px;
+    margin-right: 20px; /* Espacio entre el logo y los links */
+  }
+  
+  .links a {
+    text-decoration: none;
+    color: black; /* Color de texto para los enlaces */
+    padding: 5px 10px;
+    border-bottom: 2px solid transparent; /* Subrayado transparente por defecto */
+    transition: border-color 0.3s ease, color 0.3s ease; /* Transición suave para el subrayado y el color */
+  }
+  
+  .links a:hover {
+    border-color: rgb(233, 196, 106); /* Color del subrayado al pasar el mouse */
+    color: rgb(233, 196, 106); /* Cambio de color al pasar el mouse */
+  }
+  /* Navbar.module.css */
+
+/* Estilos base, tal como se mencionaron anteriormente */
+
+@media (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Cambia la dirección de los elementos a columnas en pantallas pequeñas */
+    }
+  
+    .logo {
+      margin-right: 0; /* Elimina el margen derecho en pantallas pequeñas */
+    }
+  
+    .links {
+      flex-direction: column; /* Muestra los enlaces en una columna en pantallas pequeñas */
+      align-items: center;
+    }
+  
+    .links a {
+      padding: 10px 0; /* Espacio vertical entre los enlaces */
+    }
+  }
+  
+  

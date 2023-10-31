@@ -1,0 +1,87 @@
+h1 {
+    color: #d05353ff;
+    font-size: 90px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 5px;
+  }
+.parrafotext {
+    text-align: left; /* Alinea el texto a la izquierda */
+    margin: 0; /* Elimina el margen predeterminado */
+    padding: 10px; /* Añade un espacio alrededor del párrafo para mejorar el diseño */
+    
+}
+
+  /* Estilo para el eslogan (p) */
+  .parrafo {
+    color: #e9c46aff; /* Color de texto para el eslogan */
+    font-size: 20px;  /* Tamaño de fuente más grande */
+    margin-top: -85px;  /* Espacio superior para acercar al h1 */
+  }
+  .tituloLink {
+    color: #2a9d8fff;
+    text-decoration: underline;
+    transition: color 0.3s;
+  }
+  .tituloLink:hover {
+    color: #d05353ff; /* Cambia el color del texto cuando se pasa el mouse por encima */
+}
+  .titulo{
+    color: #d05353ff;
+  }
+
+.horizontalLine {
+    border-top: 1px solid #e9c46aff; 
+    margin: 55px 10px; 
+  }
+  
+
+  .articleContainer {
+    align-items: center;
+  }
+  
+  
+  .articleImage {
+    width: 470px; 
+    height: 400px;
+    object-fit: cover;
+    max-width: 100%; 
+    margin: 0 5px; 
+  }
+.razaSection {
+    float: left; /* Coloca esta sección a la derecha */
+    width: 50%; /* Ocupa la mitad del ancho de la página */
+}
+
+
+.homeSection {
+    float: right; /* Coloca esta sección a la derecha */
+    width: 50%; /* Ocupa la mitad del ancho de la página */
+  }
+  
+  /* Estilo para la sección Create */
+  .createSection {
+    float: left; /* Coloca esta sección a la izquierda */
+    width: 50%; /* Ocupa la mitad del ancho de la página */
+  }
+  
+  /* Estilo para la línea vertical entre las secciones */
+  .divider {
+    border-left: 1px solid #e9c46aff; /* Línea vertical de color e9c46aff */
+    height: 100%; /* Altura igual a la de las secciones */
+  }
+  
+  
+.sliderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65vh; 
+  }
+  
+  .sliderContainer {
+    max-width: 100%; 
+  }
+  
+
+  

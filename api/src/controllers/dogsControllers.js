@@ -35,7 +35,7 @@ const getdogsApi = async () => {
                 height: dC.height,
                 weight: dC.weight,
                 life_span: dC.life_span,
-                temperament: newTemperament,
+                temperaments: newTemperament.join(", "),
                 image: dC.image.url
             }
         } else {
@@ -68,7 +68,7 @@ const getdogsDb = async ()=>{
             height: dC.height,
             weight: dC.weight,
             life_span: dC.life_span,
-            temperaments: tem,
+            temperaments: tem.join(", "),
             image: dC.image
         }
     })
@@ -99,7 +99,7 @@ const getDogId = async (id) =>{
             height: data.height,
             weight: data.weight,
             life_span: data.life_span,
-            temperament: newTemperament,
+            temperament: newTemperament.join(", "),
             image: `https://cdn2.thedogapi.com/images/${data.reference_image_id}.jpg`
         }
     }
@@ -123,7 +123,7 @@ const getDogId = async (id) =>{
         height: dogId.height,
         weight: dogId.weight,
         life_span: dogId.life_span,
-        temperament: temperamentDb,
+        temperament: temperamentDb.join(", "),
         image: dogId.image
     }
 }
