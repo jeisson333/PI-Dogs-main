@@ -1,3 +1,92 @@
-.paginateactual{
-    background-color: red;
+/* Colores */
+:root {
+    --charcoal: #264653ff;
+    --persian-green: #2a9d8fff;
+    --saffron: #e9c46aff;
+    --indian-red: #d05353ff;
+    --old-rose: #c78283ff;
+  }
+  
+
+  
+  .filtersSection {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+  }
+  
+  .filtersSection h3 {
+    color: var(--saffron);
+    margin: 0;
+  }
+  
+  .selects {
+    flex: 1;
+    margin: 0 10px;
+  }
+  
+  .selects select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--persian-green);
+  }
+
+
+
+
+.buttonContainer {
+    display: flex;
+    flex-wrap: wrap; /* Los botones se envolverán en dispositivos móviles */
+    justify-content: center; /* Centra los botones horizontalmente */
+    margin: 10px 0;
+  }
+  
+  .buttonContainer button {
+    /* Estilos de los botones */
+    background-color: var(--persian-green);
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: 3px; /* Espacio entre los botones */
+    transition: background-color 0.3s ease;
+  }
+  
+  .buttonContainer button:hover {
+    background-color: var(--old-rose);
+  }
+  .paginateactual{
+    background-color: var(--indian-red);
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
 }
+  @media (max-width: 768px) {
+    .buttonContainer button {
+      padding: 8px 16px; /* Reducir el tamaño de fuente y espaciado en dispositivos móviles */
+      margin: 3px; /* Reducir el espaciado entre los botones */
+    }
+  }
+  
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .filtersSection {
+      flex-direction: column;
+    }
+  
+    .selects {
+      margin: 10px 0;
+    }
+  
+    .selects select {
+      width: 100%;
+    }
+  }
+  
+  
+  

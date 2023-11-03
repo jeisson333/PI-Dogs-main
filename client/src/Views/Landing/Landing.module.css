@@ -6,17 +6,46 @@ h1 {
     margin-top: 5px;
   }
 .parrafotext {
-    text-align: left; /* Alinea el texto a la izquierda */
-    margin: 0; /* Elimina el margen predeterminado */
-    padding: 10px; /* Añade un espacio alrededor del párrafo para mejorar el diseño */
+    text-align: left;
+    margin: 0; 
+    padding: 10px;
     
 }
 
-  /* Estilo para el eslogan (p) */
+/*Slinder */
+
+
+.sliderBoxContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 600%; 
+  white-space: nowrap; 
+}
+.sindlerImage{
+  width: 100%;
+  height: 300px;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.sliderBoxContainer {
+  animation: slide 400s linear infinite; 
+}
+
+
+
   .parrafo {
-    color: #e9c46aff; /* Color de texto para el eslogan */
-    font-size: 20px;  /* Tamaño de fuente más grande */
-    margin-top: -85px;  /* Espacio superior para acercar al h1 */
+    color: #e9c46aff; 
+    font-size: 20px;  
+    margin-top: -85px;  
   }
   .tituloLink {
     color: #2a9d8fff;
@@ -24,7 +53,7 @@ h1 {
     transition: color 0.3s;
   }
   .tituloLink:hover {
-    color: #d05353ff; /* Cambia el color del texto cuando se pasa el mouse por encima */
+    color: #d05353ff; 
 }
   .titulo{
     color: #d05353ff;
@@ -49,39 +78,29 @@ h1 {
     margin: 0 5px; 
   }
 .razaSection {
-    float: left; /* Coloca esta sección a la derecha */
-    width: 50%; /* Ocupa la mitad del ancho de la página */
+    float: left; 
+    width: 50%;
 }
 
 
 .homeSection {
-    float: right; /* Coloca esta sección a la derecha */
-    width: 50%; /* Ocupa la mitad del ancho de la página */
+    float: right; 
+    width: 50%; 
   }
   
-  /* Estilo para la sección Create */
+
   .createSection {
-    float: left; /* Coloca esta sección a la izquierda */
-    width: 50%; /* Ocupa la mitad del ancho de la página */
+    float: left; 
+    width: 50%; 
   }
   
-  /* Estilo para la línea vertical entre las secciones */
+
   .divider {
-    border-left: 1px solid #e9c46aff; /* Línea vertical de color e9c46aff */
-    height: 100%; /* Altura igual a la de las secciones */
+    border-left: 1px solid #e9c46aff; 
+    height: 100%;
   }
   
   
-.sliderContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 65vh; 
-  }
-  
-  .sliderContainer {
-    max-width: 100%; 
-  }
-  
+
 
   

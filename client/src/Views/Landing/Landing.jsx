@@ -1,6 +1,3 @@
-import React, { useState, useEffect } from 'react';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import styles from './Landing.module.css';
 import dog3 from '../../assets/imgDogs/3.png';
 import dog4 from '../../assets/imgDogs/4.png';
@@ -16,45 +13,27 @@ import dog21 from '../../assets/imgDogs/15.png';
 import { Link } from 'react-router-dom';
 
 const Landing = () => {
-  const images = [dog3, dog4, dog6, dog7, dog10, dog11, dog12, dog13, dog17];
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
-  };
-
-  useEffect(() => {
-    const interval = setInterval(handleNext, 4000);
-
-    return () => clearInterval(interval);
-  }, []);
-
+  const images = [dog3, dog4, dog6, dog7, dog10, dog11, dog12, dog13, dog17,dog3, dog4, dog6, dog7, dog10, dog11, dog12, dog13, dog17]; 
   return (
     <div>
       <h1>MaxMas</h1>
       <h2 className={styles.parrafo}>Amor y razas</h2>
-      <div className={styles.sliderContainer}>
-        <Carousel
-          showArrows={true}
-          showStatus={false}
-          showThumbs={false}
-          selectedItem={currentIndex}
-          width={900}
-          dynamicHeight={false}
-          centerMode={true}
-          centerSlidePercentage={50}
-        >
+  
+      <div className={styles.sliderBox}>
+        <div className={styles.sliderBoxContainer}>
+          
           {images.map((image, index) => (
-    <div key={index} style={{ width: '500px', height: '300px' }}>
-      <img
-        src={image}
-        alt={`Dog ${index + 1}`}
-        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-      />
-    </div>
-  ))}
-        </Carousel>
+            <div
+              key={index}
+              className={`${styles.sliderItem}`}
+            >
+              <img src={image} className={styles.sindlerImage} alt={`Dog ${index}`} />
+            </div>
+          ))}
+          
+        </div>
       </div>
+
       <div className={styles.divider}></div>
       <section className={`${styles.homeSection} ${styles.divider}`}>
         <Link to='/create'>

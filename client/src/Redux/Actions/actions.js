@@ -1,4 +1,4 @@
-import { GET_TEMPERAMENT,GET_DOGS, PAGINATE, FILTER,ORDER,GET_DOG_NAME} from './action-types';
+import { GET_TEMPERAMENT,GET_DOGS, PAGINATE, FILTER,ORDER,GET_DOG_NAME, GET_DOGSAPI, GET_DOGSDB} from './action-types';
 import axios from 'axios';
 
 export const getTemperament = () => {
@@ -32,6 +32,32 @@ export const getDogs = () =>{
             const response = await axios.get('http://localhost:3001/dogs');
             dispatch({
                 type: GET_DOGS,
+                payload: response.data
+            })
+        } catch (error) {
+            alert(error)
+        }
+    }
+}
+export const getDogsApi = () =>{
+    return async (dispatch) =>{
+        try {
+            const response = await axios.get('http://localhost:3001/dogs/api');
+            dispatch({
+                type: GET_DOGSAPI,
+                payload: response.data
+            })
+        } catch (error) {
+            alert(error)
+        }
+    }
+}
+export const getDogsDb = () =>{
+    return async (dispatch) =>{
+        try {
+            const response = await axios.get('http://localhost:3001/dogs/db');
+            dispatch({
+                type: GET_DOGSDB,
                 payload: response.data
             })
         } catch (error) {

@@ -3,10 +3,10 @@
 .card {
     width: 410px; /* Establece un ancho fijo para las tarjetas */
     max-height: 450px; /* Establece una altura máxima para las tarjetas */
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    border: 1px solid #e9c46aff;
+    border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Oculta el contenido que desborda las tarjetas */
+    overflow: auto; 
     margin: 20px;
   }
   .cardContent {
@@ -24,7 +24,7 @@
     }
   
     .cardImage {
-      width: 400px; 
+      width: 300px; 
       height: 200px;
       object-fit: fill;
       max-width: 100%; 

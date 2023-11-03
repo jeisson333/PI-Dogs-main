@@ -23,6 +23,7 @@ const Create = () => {
     temperament: [],
     image: ""
   };
+ 
   const [formCleared, setFormCleared] = useState(false);
   const [state, setState] = useState(initialState)
   const resetForm = () => {
@@ -37,6 +38,7 @@ const Create = () => {
     temperament: "Formulario incompleto!",
     image: "Formulario incompleto!"
   });
+ 
   const validate = (state, name) => {
     const validationRegex = {
       name: /^[A-Za-z\s']+$/,
@@ -91,14 +93,33 @@ const Create = () => {
       }
     }
   };
+ 
+  const removeTemperament = (event)=>{
+    event.preventDefault();
+    const removedTemperament = event.target.value;
+    const updatedTemperament = state.temperament.filter(e => e !== removedTemperament);
+    setState({
+      ...state,
+      temperament: updatedTemperament,
+    });
+    
+  }
+  const sinCopi = new Set(state.temperament)
+    state.temperament = [...sinCopi]
+  useEffect (()=>{
+
+  },[state.temperament])
+ 
 
   const handleChange = (event) => {
-
+    
     if (event.target.name === "temperament") {
+      
       setState({
         ...state,
         temperament: [...state.temperament, event.target.value],
       });
+      
     }
     else {
       setState({
@@ -136,7 +157,7 @@ const Create = () => {
 
   state.height = { metric: `${state.numMinHei} - ${state.numMaxHei}` };
   state.weight = { metric: `${state.numMinWei} - ${state.numMaxWei}` };
-
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -153,9 +174,7 @@ const Create = () => {
     });
   }
 
-  const mostrarDatos = (dato) => {
-    return dato.map(g => g).join(", ");
-  }
+  
 
   const miSet = new Set();
   for (let error in errors) {
@@ -163,7 +182,7 @@ const Create = () => {
       miSet.add(errors[error]);
     }
   }
-
+  
   return (
     <div className={styles['form-container']}>
       <form onSubmit={handleSubmit}>
@@ -177,7 +196,17 @@ const Create = () => {
         <input name='numMaxWei' onChange={handleChange} type="text" value={formCleared ? '' : state.numMaxWei} placeholder="Max Num" className={styles['form-inputnum']} />
         <label htmlFor="" className={styles['form-label']}>Life Span:</label>
         <input name='life_span' onChange={handleChange} type="text" value={formCleared ? '' : state.life_span} className={styles['form-input']} />
-        <label htmlFor="" className={styles['form-label']}>temperament: {mostrarDatos(state.temperament)}</label>
+        <label className={styles['form-label']}>Temperament: 
+         {
+          state.temperament.map((e,i)=>{
+          return(
+            <button className={styles.buttonRemove} onClick={removeTemperament} key={i} value={e}>
+              {e}
+            </button>
+          )
+  
+         })
+         }</label>
         <select name='temperament' onChange={handleChange} className={styles['form-select']}>
           {temperamentM.map((t) => (
             <option key={t} value={t}>{t}</option>

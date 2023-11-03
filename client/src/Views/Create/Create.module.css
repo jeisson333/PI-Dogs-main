@@ -51,9 +51,29 @@
     font-size: 14px;
     margin-top: -10px;
     margin-bottom: 10px;
+
   }
   
-  /* Estilos para el botón de envío */
+  .buttonRemove {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+  }  
+  .buttonRemove::after {
+    content: "[X]";
+    color: black; 
+    font-size: 10px;
+    padding: 5px;
+  }
+  .buttonRemove:hover::after {
+    
+    color: red;
+    font-size: 18px; 
+    padding: 5px;
+  }
+  
+
   .form-button {
     background-color: var(--indian-red);
     color: #fff;
