@@ -9,9 +9,13 @@ const Home = () => {
   const dispatch = useDispatch();
   const allDogs = useSelector((state) => state.allDogs);
   const allDogsBackup = useSelector((state) => state.allDogsBackup);
+  const dogsFiltered = useSelector((state) => state.dogsFiltered);
   const allTemperaments = useSelector((state) => state.allTemperament);
   const currentPage = useSelector((state) => state.currentPage);
   const [searchD, setSearchD] = useState("");
+  let [i, seti] = useState(0);
+  
+
   const handleChange = (event) => {
     event.preventDefault();
     setSearchD(event.target.value);
@@ -36,6 +40,7 @@ const Home = () => {
   const filterTemperament = (event) => {
     dispatch(filterTemperamentAction(event.target.value));
   };
+
   const filterDbApi = (event) => {
     if (event.target.value === 'api') {
       dispatch(getDogsApi(event.target.value))
@@ -52,13 +57,29 @@ const Home = () => {
   const orderDogs = (event) => {
     dispatch(orderDogsAction(event.target.value));
   };
-  let cont = []
-  for (let index = 0; index < allDogsBackup.length / 8; index++) {
-    cont.push(index);
+  
+  const numerosC = () =>{
+    let [cont, setCont] = useState([])
+    i = i + 1;
+    console.log(i);
+    if(dogsFiltered.length > 0){
+      cont =[]
+      for (let index = 0; index < dogsFiltered.length / 8; index++) {
+        cont.push(index);
+      }
+    }
+    else{
+      cont =[0]
+      
+    }
+    
+    return cont;
   }
+  
 
   return (
     <div className={styles.homeContainer}>
+      
       <Navbar handleChange={handleChange} handleSubmit={handleSubmit} />
       <div className={styles.filtersSection}>
        
@@ -77,6 +98,7 @@ const Home = () => {
         <div className={styles.selects}>
           <span>Filtro Temperamentos: </span>
         <select onChange={filterTemperament} name="temperament">
+          <option value='all'>ALL</option>
           {allTemperaments.map((t) => (
             <option key={t.name} value={t.name}>
               {t.name}
@@ -99,9 +121,9 @@ const Home = () => {
       </div>
       <div className={styles.buttonContainer}>
         <button onClick={paginate} name='prev'>{"<"}</button>
-        {cont.map((c) => {
+        {numerosC().map((c) => {
           return (
-            <button key={c}>{
+            <button key={c} onClick={paginate} name={c+1}>{
               c === currentPage ? <span className={styles.paginateactual}>{c + 1}</span> : c + 1
 
             }</button>
@@ -112,10 +134,12 @@ const Home = () => {
       </div>
       <Cards allDogs={allDogs} />
       <div className={styles.buttonContainer}>
+
         <button onClick={paginate} name='prev'>{"<"}</button>
-        {cont.map((c) => {
+        
+        {numerosC().map((c) => {
           return (
-            <button key={c}>{
+            <button key={c} onClick={paginate} name={c+1}>{
               c === currentPage ? <span className={styles.paginateactual}>{c + 1}</span> : c + 1
 
             }</button>

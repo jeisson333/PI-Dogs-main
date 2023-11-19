@@ -10,6 +10,7 @@ const initialState = {
   dogsFiltered: [],
   dogsOrdered: [],
   filter: false,
+  order: false,
 };
 const reducer = (state = initialState, { type, payload }) => {
   const ITEMS_PER_PAGE = 8;
@@ -31,7 +32,9 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         allDogs: [...payload].splice(0, ITEMS_PER_PAGE),
-        allDogsBackup: payload
+        allDogsBackup: payload,
+        dogsFiltered: []
+        
       }
       break;
       case GET_DOGSAPI:
@@ -42,6 +45,9 @@ const reducer = (state = initialState, { type, payload }) => {
       }
       break;
     case PAGINATE:
+      if (payload > -1) {
+        state.currentPage = payload;
+      }
       const nextPage = state.currentPage + 1;
       const prevPage = state.currentPage - 1;
       const firstIndex = payload === "next" ? nextPage * ITEMS_PER_PAGE : prevPage * ITEMS_PER_PAGE;
@@ -54,10 +60,19 @@ const reducer = (state = initialState, { type, payload }) => {
           currentPage: payload === "next" ? nextPage : prevPage
         }
       }
+      if (state.order) {
+        if (payload === "next" && firstIndex >= state.dogsOrdered.length) return state;
+        else if (payload === "prev" && prevPage < 0) return state;
+        return {
+          ...state,
+          allDogs: [...state.dogsOrdered].splice(firstIndex, ITEMS_PER_PAGE),
+          currentPage: payload === "next" ? nextPage : prevPage
+        }
+      }
 
       if (payload === "next" && firstIndex >= state.allDogsBackup.length) return state;
       else if (payload === "prev" && prevPage < 0) return state;
-
+     
       return {
         ...state,
         allDogs: [...state.allDogsBackup].splice(firstIndex, ITEMS_PER_PAGE),
@@ -69,15 +84,26 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         allDogs: payload,
+        currentPage: 0
       }
       break;
     case FILTER:
+      let allFilter = []
+      let filterByTemperament = []
+      if (payload === 'all') {
+        
+         allFilter = [...state.allDogsBackup];
+         filterByTemperament = allFilter
+      }
+      else{
+        filterByTemperament = [...state.allDogsBackup].filter(t => t.temperaments?.includes(payload));
+
+      }
       
-      const filterByTemperament = [...state.allDogsBackup].filter(t => t.temperaments?.includes(payload));
       return {
         ...state,
         allDogs: filterByTemperament.splice(0, ITEMS_PER_PAGE),
-        dogsFiltered: filterByTemperament,
+        dogsFiltered: filterByTemperament || allFilter,
         filter: true
       }
       break
@@ -170,7 +196,8 @@ const reducer = (state = initialState, { type, payload }) => {
         ...state,
         allDogs: [...orderByTemperaments].splice(0, ITEMS_PER_PAGE),
         dogsOrdered: orderByTemperaments,
-        filter: filteract
+        filter: filteract,
+        order: true
 
       }
       break
