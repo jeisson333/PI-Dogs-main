@@ -20,6 +20,7 @@ function App() {
         <Route exact path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
         <Route path="/details/:id" element={<Detail />} />
+        <Route path="/details/?name" element={<Detail />} />
         <Route path='/create' element={<Create />} />
       </Routes>
       <Footer />
